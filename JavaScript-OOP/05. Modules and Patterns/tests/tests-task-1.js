@@ -246,7 +246,7 @@ describe('Test for Modules and Patterns in JavaScript', function() {
 				id = jsoop.addStudent(getValidName() + ' ' + getValidName());
 				jsoop.submitHomework(id, 1);
 			}
-			expect(test).to.throw();
+			expect(test).to.not.throw();
 		});
 	});
 
@@ -331,7 +331,7 @@ function checkStudentList(list1, list2) {
 		return false;
 
 	function compare(a, b) {
-		return a.id < b.id;
+		return a.id - b.id;
 	}
 
 	list1.sort(compare);
