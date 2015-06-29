@@ -194,3 +194,9 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+# WebStorm directory
+.idea/
+
+# chai directory
+.node_modules/
