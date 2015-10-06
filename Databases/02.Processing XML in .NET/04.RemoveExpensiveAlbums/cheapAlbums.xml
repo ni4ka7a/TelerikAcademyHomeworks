@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="catalogue.xslt"?>
+<catalogue>
+  <album>
+    <name>Compton</name>4
+    <artist>Dr. Dre</artist><year>2015</year><producer>Dr. Dre</producer><price>7.98</price><song><title>Talk About It</title><duration>3:15</duration></song><song><title>Genocide</title><duration>4:27</duration></song><song><title>It's All on Me</title><duration>3:48</duration></song></album>
+  <album>
+    <name>Recovery</name>4
+    <artist>Eminem</artist><year>2009</year><producer>Alex da Kid</producer><price>11.63</price><song><title>Cold Wind Blows</title><duration>5:03</duration></song><song><title>Talkin' 2 Myself</title><duration>5:00</duration></song><song><title>Not Afraid</title><duration>4:10</duration></song></album>
+  <album>
+    <name>Bush</name>4
+    <artist>Snoop Dogg</artist><year>2015</year><producer>Chad Hugo</producer><price>12.47</price><song><title>California Roll</title><duration>4:12</duration></song><song><title>Awake</title><duration>3:43</duration></song><song><title>I'm Ya Dogg</title><duration>4:38</duration></song></album>
+  <album>
+    <name>The Slim Shady LP</name>4
+    <artist>Eminem</artist><year>1999</year><producer>Dr. Dre</producer><price>5.99</price><song><title>My Name Is</title><duration>4:28</duration></song><song><title>Brain Damage</title><duration>3:19</duration></song><song><title>I'm Shady</title><duration>3:31</duration></song></album>
+</catalogue>

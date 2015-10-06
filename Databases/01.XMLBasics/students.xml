@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="students.xslt"?>
+<students xmlns:students="http://www.academy.com/students">
+  <student>
+    <name>Stamat</name>
+    <gender>Male</gender>
+    <birthDate>10.10.1990</birthDate>
+    <phone>0989457778</phone>
+    <email>stamat@gmail.com</email>
+    <course>Databases</course>
+    <specialty>QA</specialty>
+    <facultyNumber>000233214</facultyNumber>
+    <exams>
+      <name>JS Apps</name>
+      <tutor>Doncho</tutor>
+      <score>34</score>
+    </exams>
+    <exams>
+      <name>JS OOP</name>
+      <tutor>Ivo</tutor>
+      <score>66</score>
+    </exams>
+  </student>
+  <student>
+    <name>John</name>
+    <gender>Male</gender>
+    <birthDate>11.01.1994</birthDate>
+    <phone>0874562145</phone>
+    <email>john@gmail.com</email>
+    <course>JS Apps</course>
+    <specialty>JS Ninja</specialty>
+    <facultyNumber>000233214</facultyNumber>
+    <exams>
+      <name>JS UI and DOM</name>
+      <tutor>Doncho</tutor>
+      <score>241</score>
+    </exams>
+    <exams>
+      <name>JS OOP</name>
+      <tutor>Niki</tutor>
+      <score>90</score>
+    </exams>
+  </student>
+  <student>
+    <name>Stamina</name>
+    <gender>Female</gender>
+    <birthDate>02.06.1999</birthDate>
+    <phone>0845369987</phone>
+    <email>stamina@yahoo.com</email>
+    <course>C# OOP</course>
+    <specialty>C# Ninja</specialty>
+    <facultyNumber>322145870</facultyNumber>
+    <exams>
+      <name>C# 1</name>
+      <tutor>Evlogi</tutor>
+      <score>490</score>
+    </exams>
+    <exams>
+      <name>C# 2</name>
+      <tutor>Ivo</tutor>
+      <score>390</score>
+    </exams>
+  </student>
+</students>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<albums>
+	<album>
+		<album>Compton</album>
+		<author>Dr. Dre</author>
+	</album>
+	<album>
+		<album>Recovery</album>
+		<author>Eminem</author>
+	</album>
+	<album>
+		<album>Bush</album>
+		<author>Snoop Dogg</author>
+	</album>
+	<album>
+		<album>The Slim Shady LP</album>
+		<author>Eminem</author>
+	</album>
+	<album>
+		<album>Fake Album</album>
+		<author>Fake artist</author>
+	</album>
+</albums>
