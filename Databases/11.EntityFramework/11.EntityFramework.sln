@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.CreateDbContextForNorthwindDatabase", "01.CreateDbContextForNorthwindDatabase\01.CreateDbContextForNorthwindDatabase.csproj", "{F6F5E6ED-B308-4190-8A87-DCE3F3CD78C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CreateDAOClass", "02.CreateDAOClass\02.CreateDAOClass.csproj", "{DCEC476E-AE53-4522-9991-7696B276B7C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.FindCustomersByOrders", "03.FindCustomersByOrders\03.FindCustomersByOrders.csproj", "{19822343-A287-4989-8D88-03A4F9C71BAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.FindCustomersByOrdersWithNativeSqlQuery", "04.FindCustomersByOrdersWithNativeSqlQuery\04.FindCustomersByOrdersWithNativeSqlQuery.csproj", "{F45E8053-0DE0-459C-9751-F32C0A233D3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6F5E6ED-B308-4190-8A87-DCE3F3CD78C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F5E6ED-B308-4190-8A87-DCE3F3CD78C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F5E6ED-B308-4190-8A87-DCE3F3CD78C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F5E6ED-B308-4190-8A87-DCE3F3CD78C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCEC476E-AE53-4522-9991-7696B276B7C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCEC476E-AE53-4522-9991-7696B276B7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCEC476E-AE53-4522-9991-7696B276B7C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCEC476E-AE53-4522-9991-7696B276B7C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19822343-A287-4989-8D88-03A4F9C71BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19822343-A287-4989-8D88-03A4F9C71BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19822343-A287-4989-8D88-03A4F9C71BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19822343-A287-4989-8D88-03A4F9C71BAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45E8053-0DE0-459C-9751-F32C0A233D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45E8053-0DE0-459C-9751-F32C0A233D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45E8053-0DE0-459C-9751-F32C0A233D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45E8053-0DE0-459C-9751-F32C0A233D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
