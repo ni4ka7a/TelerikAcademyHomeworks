@@ -13,13 +13,14 @@
                                       "FROM Customers c " +
                                       "JOIN Orders o " +
                                       "ON c.CustomerID = o.CustomerID " +
-                                      "WHERE o.ShipCountry = 'Canada' AND YEAR(o.OrderDate) = 1997";
+                                      "WHERE o.ShipCountry = 'Canada' AND YEAR(o.OrderDate) = 1997 " + 
+                                      "ORDER BY c.ContactName";
 
                 var customers = dbContext.Database.SqlQuery<Customer>(nativeSqlQuery);
 
                 foreach (var customer in customers)
                 {
-                    Console.WriteLine(customer.CompanyName);
+                    Console.WriteLine("{0}, {1}", customer.ContactName, customer.CompanyName);
                 }
             }
         }
