@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.AddDataToExcel", "07.Add
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.SearchInProducts", "08.SearchInProducts\08.SearchInProducts.csproj", "{B870CB43-93A4-46BE-8191-186E89175236}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.BooksTableInMySql", "BooksTableInMySql\09.BooksTableInMySql.csproj", "{773A2F7F-F5A4-495B-9A98-686B24E44691}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.BooksTableInMySql", "09.BooksTableInMySql\09.BooksTableInMySql.csproj", "{773A2F7F-F5A4-495B-9A98-686B24E44691}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.BooksTableInSqlite", "10.BooksTableInSqlite\10.BooksTableInSqlite.csproj", "{2C7A9F13-C8D4-481A-BDEB-D8C0E1CAFE04}"
 EndProject
