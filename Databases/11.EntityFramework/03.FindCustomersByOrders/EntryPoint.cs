@@ -12,15 +12,14 @@ namespace _03.FindCustomersByOrders
         {
             using (var dbContext = new NorthwindEntities())
             {
-                // Doesen't work!
-                var cus = dbContext
+                var customers = dbContext
                     .Customers
-                    .Where(c => c.Orders.Where(o => o.ShipCountry == "Canada" && o.OrderDate.Value.Year == 1997).Any())
+                    .Where(c => c.Orders.Any(x => x.OrderDate != null && (x.OrderDate.Value.Year == 1997 && x.ShipCountry == "Canada")))
                     .ToList();
 
-                foreach (var item in cus)
+                foreach (var customer in customers)
                 {
-                    Console.WriteLine(item.CompanyName);
+                    Console.WriteLine("{0}, {1}", customer.ContactName, customer.CompanyName);
                 }
             }
         }
