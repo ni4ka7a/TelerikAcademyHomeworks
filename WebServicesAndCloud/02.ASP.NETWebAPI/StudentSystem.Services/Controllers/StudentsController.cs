@@ -4,8 +4,8 @@
     using System.Web.Http;
 
     using Services.Models.Students;
-    using StudentsSystem.Data;
     using StudentsStystem.Models;
+    using StudentsSystem.Data;
 
     public class StudentsController : ApiController
     {
@@ -15,7 +15,7 @@
         public StudentsController()
         {
             this.db = new StudentsDbContext();
-            this.students = new EfGenericRepository<Student>(db);
+            this.students = new EfGenericRepository<Student>(this.db);
         }
 
         public IHttpActionResult Get()
@@ -49,7 +49,7 @@
                 })
                 .FirstOrDefault(s => s.Id == id);
 
-            if(student == null)
+            if (student == null)
             {
                 return this.NotFound();
             }

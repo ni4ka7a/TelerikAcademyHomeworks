@@ -2,9 +2,10 @@
 {
     using System.Collections.Generic;
 
-    using StudentsStystem.Models;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
+    using StudentsStystem.Models;
 
     public class StudentRequestModel
     {

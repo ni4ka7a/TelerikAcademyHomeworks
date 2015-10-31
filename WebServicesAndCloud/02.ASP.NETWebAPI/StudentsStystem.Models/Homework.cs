@@ -6,7 +6,6 @@
 
     public class Homework
     {
-
         public int Id { get; set; }
 
         [Required]
@@ -22,6 +21,5 @@
         public int StudentId { get; set; }
 
         public Student Student { get; set; }
-       
     }
 }

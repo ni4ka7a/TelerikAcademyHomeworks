@@ -2,10 +2,9 @@
 {
     using System.Linq;
     using System.Web.Http;
-
     using Services.Models.Courses;
-    using StudentsSystem.Data;
     using StudentsStystem.Models;
+    using StudentsSystem.Data;
 
     public class CoursesController : ApiController
     {
@@ -15,12 +14,11 @@
         public CoursesController()
         {
             this.db = new StudentsDbContext();
-            this.courses = new EfGenericRepository<Course>(db);
+            this.courses = new EfGenericRepository<Course>(this.db);
         }
 
         public IHttpActionResult Get()
         {
-
             var courses = this.courses
                 .All()
                 .Select(c => new CourseResponseModel
@@ -33,7 +31,6 @@
                     Homeworks = c.Homeworks
                 })
                 .ToList();
-
 
             return this.Ok(courses);
         }
@@ -53,7 +50,7 @@
                 })
                 .FirstOrDefault(c => c.Id == id);
 
-            if(course == null)
+            if (course == null)
             {
                 return this.NotFound();
             }
@@ -88,7 +85,7 @@
                 .All()
                 .Any(c => c.Id == id);
 
-            if(!courseExists)
+            if (!courseExists)
             {
                 return this.NotFound();
             }
