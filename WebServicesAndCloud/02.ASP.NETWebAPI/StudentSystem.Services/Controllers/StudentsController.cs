@@ -15,7 +15,7 @@
         public StudentsController()
         {
             this.db = new StudentsDbContext();
-            this.students = new StudentSystemRepository<Student>(db);
+            this.students = new EfGenericRepository<Student>(db);
         }
 
         public IHttpActionResult Get()

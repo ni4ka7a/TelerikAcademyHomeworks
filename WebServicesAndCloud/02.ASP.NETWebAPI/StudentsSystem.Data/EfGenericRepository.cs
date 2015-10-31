@@ -4,9 +4,9 @@
     using System.Data.Entity;
     using System.Linq;
 
-    public class StudentSystemRepository<T> : IRepository<T> where T : class
+    public class EfGenericRepository<T> : IRepository<T> where T : class
     {
-        public StudentSystemRepository(DbContext context)
+        public EfGenericRepository(DbContext context)
         {
             if (context == null)
             {
