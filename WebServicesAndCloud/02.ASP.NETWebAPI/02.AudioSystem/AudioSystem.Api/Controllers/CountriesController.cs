@@ -23,6 +23,11 @@
         {
             var contries = this.countries
                 .All()
+                .Select(c => new CountryResponseModel
+                {
+                    Id = c.Id,
+                    Name = c.CountryName
+                })
                 .ToList();
 
             return this.Ok(contries);
@@ -32,6 +37,11 @@
         {
             var country = this.countries
                 .All()
+                .Select(c => new CountryResponseModel
+                {
+                    Id = c.Id,
+                    Name = c.CountryName
+                })
                 .FirstOrDefault(c => c.Id == id);
 
             if (country == null)
@@ -77,7 +87,7 @@
             countryToUpdate.CountryName = model.Name;
             this.countries.SaveChanges();
 
-            return this.Ok();
+            return this.Ok("The country was updated successfully");
         }
 
         public IHttpActionResult Delete(int id)

@@ -96,11 +96,14 @@
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
+    <Compile Include="Controllers\SongsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Countries\CountryRequestModel.cs" />
     <Compile Include="Models\Countries\CountryResponseModel.cs" />
+    <Compile Include="Models\Songs\SongRequestModel.cs" />
+    <Compile Include="Models\Songs\SongResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
