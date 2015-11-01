@@ -12,7 +12,6 @@
     {
         public static void Main()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AudioSystemDbContext, Configuration>());
             var dbContext = new AudioSystemDbContext();
             dbContext.Albums.ToList();
         }

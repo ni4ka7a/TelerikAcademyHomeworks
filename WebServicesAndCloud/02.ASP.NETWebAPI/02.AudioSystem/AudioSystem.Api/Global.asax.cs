@@ -1,11 +1,15 @@
 ﻿namespace AudioSystem.Api
 {
+    using System.Web;
     using System.Web.Http;
 
-    public class WebApiApplication : System.Web.HttpApplication
+    using App_Start;
+
+    public class WebApiApplication : HttpApplication
     {
         protected void Application_Start()
         {
+            DatabaseConfig.Initialize();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

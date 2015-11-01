@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioSystem.Data", "AudioSy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioSystem.ConsoleClient", "AudioSystem.ConsoleClient\AudioSystem.ConsoleClient.csproj", "{324A1DF0-E3A9-4520-A55B-F1A448192046}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioSystem.Api", "AudioSystem.Api\AudioSystem.Api.csproj", "{2759E288-6B54-4F9A-A7F8-4DB3424818E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{324A1DF0-E3A9-4520-A55B-F1A448192046}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{324A1DF0-E3A9-4520-A55B-F1A448192046}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{324A1DF0-E3A9-4520-A55B-F1A448192046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2759E288-6B54-4F9A-A7F8-4DB3424818E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2759E288-6B54-4F9A-A7F8-4DB3424818E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2759E288-6B54-4F9A-A7F8-4DB3424818E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2759E288-6B54-4F9A-A7F8-4DB3424818E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
