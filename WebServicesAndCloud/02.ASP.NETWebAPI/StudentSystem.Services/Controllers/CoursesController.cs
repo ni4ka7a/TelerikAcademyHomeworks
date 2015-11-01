@@ -141,7 +141,6 @@
             return this.Ok("The course was deleted successfully.");
         }
 
-        // TODO: Implement update option
         public IHttpActionResult Put(int id, CourseRequestModel model)
         {
             var courseToUpdate = this.courses

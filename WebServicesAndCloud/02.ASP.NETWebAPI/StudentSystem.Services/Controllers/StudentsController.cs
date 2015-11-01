@@ -3,6 +3,7 @@
     using System.Linq;
     using System.Web.Http;
 
+    using Models.Homeworks;
     using Services.Models.Students;
     using StudentsStystem.Models;
     using StudentsSystem.Data;
@@ -11,11 +12,15 @@
     {
         private StudentsDbContext db;
         private IRepository<Student> students;
+        private IRepository<Homework> homeworks;
+        private IRepository<Course> courses;
 
         public StudentsController()
         {
             this.db = new StudentsDbContext();
             this.students = new EfGenericRepository<Student>(this.db);
+            this.homeworks = new EfGenericRepository<Homework>(this.db);
+            this.courses = new EfGenericRepository<Course>(this.db);
         }
 
         public IHttpActionResult Get()
@@ -27,8 +32,16 @@
                     Id = s.Id,
                     Name = s.Name,
                     FacultyNumber = s.FacultyNumber,
-                    Courses = s.Courses,
-                    Homeworks = s.Homeworks
+                    Courses = s.Courses.Select(c => c.Name).ToList(),
+                    Homeworks = s.Homeworks.Select(h => new HomeworkResponseModel
+                    {
+                        Content = h.Content,
+                        Id = h.Id,
+                        TimeSent = h.TimeSent,
+                        CourseId = h.CourseId,
+                        StudentId = h.StudentId
+                    })
+                    .ToList()
                 })
                 .ToList();
 
@@ -44,8 +57,16 @@
                     Id = s.Id,
                     Name = s.Name,
                     FacultyNumber = s.FacultyNumber,
-                    Courses = s.Courses,
-                    Homeworks = s.Homeworks
+                    Courses = s.Courses.Select(c => c.Name).ToList(),
+                    Homeworks = s.Homeworks.Select(h => new HomeworkResponseModel
+                    {
+                        Content = h.Content,
+                        Id = h.Id,
+                        TimeSent = h.TimeSent,
+                        CourseId = h.CourseId,
+                        StudentId = h.StudentId
+                    })
+                    .ToList()
                 })
                 .FirstOrDefault(s => s.Id == id);
 
@@ -64,14 +85,37 @@
                 return this.BadRequest(this.ModelState);
             }
 
-            this.students.Add(new Student()
+            var studentToAdd = new Student()
             {
                 Name = model.Name,
-                FacultyNumber = model.FacultyNumber,
-                Courses = model.Courses,
-                Homeworks = model.Homeworks
-            });
+                FacultyNumber = model.FacultyNumber
+            };
 
+            foreach (var homeworkId in model.HomeworkIds)
+            {
+                var currentHomework = this.homeworks
+                    .All()
+                    .FirstOrDefault(h => h.Id == homeworkId);
+
+                if (currentHomework != null)
+                {
+                    studentToAdd.Homeworks.Add(currentHomework);
+                }
+            }
+
+            foreach (var courseId in model.CourseIds)
+            {
+                var currentCourse = this.courses
+                    .All()
+                    .FirstOrDefault(c => c.Id == courseId);
+
+                if (currentCourse != null)
+                {
+                    studentToAdd.Courses.Add(currentCourse);
+                }
+            }
+
+            this.students.Add(studentToAdd);
             this.students.SaveChanges();
 
             return this.Ok();
@@ -94,9 +138,51 @@
             return this.Ok("The student was successfully deleted");
         }
 
-        // TODO: Implement the update option
-        public IHttpActionResult Put(int id)
+        public IHttpActionResult Put(int id, StudentRequestModel model)
         {
+            var studentToUpdate = this.students
+                .All()
+                .FirstOrDefault(c => c.Id == id);
+
+            if (studentToUpdate == null)
+            {
+                return this.NotFound();
+            }
+
+            if (!this.ModelState.IsValid || model == null)
+            {
+                return this.BadRequest(this.ModelState);
+            }
+
+            studentToUpdate.Name = model.Name;
+            studentToUpdate.FacultyNumber = model.FacultyNumber;
+
+            foreach (var homeworkId in model.HomeworkIds)
+            {
+                var currentHomework = this.homeworks
+                    .All()
+                    .FirstOrDefault(h => h.Id == homeworkId);
+
+                if (currentHomework != null)
+                {
+                    studentToUpdate.Homeworks.Add(currentHomework);
+                }
+            }
+
+            foreach (var courseId in model.CourseIds)
+            {
+                var currentCourse = this.courses
+                    .All()
+                    .FirstOrDefault(c => c.Id == courseId);
+
+                if (currentCourse != null)
+                {
+                    studentToUpdate.Courses.Add(currentCourse);
+                }
+            }
+
+            this.students.SaveChanges();
+
             return this.Ok();
         }
     }

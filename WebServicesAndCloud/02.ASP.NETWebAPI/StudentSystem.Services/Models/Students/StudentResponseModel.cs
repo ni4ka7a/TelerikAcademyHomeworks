@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
 
+    using Homeworks;
     using StudentsStystem.Models;
 
     public class StudentResponseModel
@@ -12,8 +13,8 @@
 
         public string FacultyNumber { get; set; }
 
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<string> Courses { get; set; }
 
-        public virtual ICollection<Homework> Homeworks { get; set; }
+        public virtual ICollection<HomeworkResponseModel> Homeworks { get; set; }
     }
 }

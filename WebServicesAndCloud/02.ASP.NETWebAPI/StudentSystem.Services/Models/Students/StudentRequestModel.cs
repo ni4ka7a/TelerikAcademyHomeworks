@@ -19,8 +19,8 @@
         [MaxLength(10)]
         public string FacultyNumber { get; set; }
 
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<int> CourseIds { get; set; }
 
-        public virtual ICollection<Homework> Homeworks { get; set; }
+        public virtual ICollection<int> HomeworkIds { get; set; }
     }
 }
