@@ -95,9 +95,27 @@
             return this.Ok("The homework was successfully deleted.");
         }
 
-        // TODO: Implement update option
-        public IHttpActionResult Put()
+        public IHttpActionResult Put(int id, HomeworkRequestModel model)
         {
+            var homeworkToUpdate = this.homeworks
+               .All()
+               .FirstOrDefault(c => c.Id == id);
+
+            if (homeworkToUpdate == null)
+            {
+                return this.NotFound();
+            }
+
+            if (!this.ModelState.IsValid || model == null)
+            {
+                return this.BadRequest(this.ModelState);
+            }
+
+            homeworkToUpdate.Content = model.Content;
+            homeworkToUpdate.CourseId = model.CourseId;
+            homeworkToUpdate.StudentId = model.StudentId;
+
+            this.homeworks.SaveChanges();
             return this.Ok();
         }
     }
