@@ -20,6 +20,11 @@
 
         public virtual DbSet<Country> Countries { get; set; }
 
+        public static AudioSystemDbContext Create()
+        {
+            return new AudioSystemDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

@@ -10,6 +10,7 @@
         public static void Initialize()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AudioSystemDbContext, Configuration>());
+            AudioSystemDbContext.Create().Database.Initialize(true);
         }
     }
 }
