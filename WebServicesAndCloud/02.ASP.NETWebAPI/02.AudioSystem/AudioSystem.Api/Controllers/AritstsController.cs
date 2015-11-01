@@ -66,6 +66,15 @@
             return this.Ok(artist);
         }
 
+        /// <summary>
+        /// Expect ArtistRequestModel with valid name, dateOfBirth (as string), CountryId , AlbumIds (array) - it can be empty,
+        /// and SongIds (array) - it can be empty
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>
+        /// If the artist is added returns IHttpActionResult with status code 200 OK
+        /// If the input data in not in the valid format retunrs  IHttpActionResult with status code 400 Bad Request
+        /// </returns>
         public IHttpActionResult Post(ArtistRequestModel model)
         {
             if (!this.ModelState.IsValid || model == null)

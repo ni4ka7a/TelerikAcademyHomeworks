@@ -14,8 +14,10 @@
 
         public int CountryId { get; set; }
 
+        [Required]
         public virtual ICollection<int> AlbumIds { get; set; }
 
+        [Required]
         public virtual ICollection<int> SongIds { get; set; }
     }
 }

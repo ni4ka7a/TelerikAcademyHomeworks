@@ -14,8 +14,10 @@
         [MaxLength(30)]
         public string ProducerName { get; set; }
 
+        [Required]
         public virtual ICollection<int> ArtistIds { get; set; }
 
+        [Required]
         public virtual ICollection<int> SongIds { get; set; }
     }
 }

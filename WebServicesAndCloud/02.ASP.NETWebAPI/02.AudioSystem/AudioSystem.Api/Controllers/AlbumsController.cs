@@ -58,6 +58,15 @@
             return this.Ok(album);
         }
 
+        /// <summary>
+        /// Expect AlbumRequestModel with valid title, year (2 digits), ProducerName , ArtistIds (array) - it can be empty,
+        /// and SongIds (array) - it can be empty
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>
+        /// If the album is added returns IHttpActionResult with status code 200 OK
+        /// If the input album in not in the valid format retunrs  IHttpActionResult with status code 400 Bad Request
+        /// </returns>
         public IHttpActionResult Post(AlbumRequestModel model)
         {
             if (!this.ModelState.IsValid || model == null)

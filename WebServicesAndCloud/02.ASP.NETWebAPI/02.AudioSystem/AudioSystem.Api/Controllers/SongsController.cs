@@ -64,6 +64,14 @@
             return this.Ok(song);
         }
 
+        /// <summary>
+        /// Expect SongRequestModel with valid title, year (2 digits), Genre , ArtistId and AlbumId.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>
+        /// If the song is added returns IHttpActionResult with status code 200 OK
+        /// If the input data in not in the valid format retunrs  IHttpActionResult with status code 400 Bad Request
+        /// </returns>
         public IHttpActionResult Post(SongRequestModel model)
         {
             if (!this.ModelState.IsValid || model == null)

@@ -52,6 +52,14 @@
             return this.Ok(country);
         }
 
+        /// <summary>
+        /// Expect CountryRequestModel with valid name.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>
+        /// If the country is added returns IHttpActionResult with status code 200 OK
+        /// If the input data in not in the valid format retunrs  IHttpActionResult with status code 400 Bad Request
+        /// </returns>
         public IHttpActionResult Post(CountryRequestModel model)
         {
             if (!this.ModelState.IsValid || model == null)
