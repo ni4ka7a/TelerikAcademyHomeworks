@@ -5,8 +5,8 @@
     using System.Linq;
 
     using Data;
-    using Models;
     using Data.Migrations;
+    using Models;
 
     public static class Startup
     {
