@@ -95,12 +95,15 @@
   <ItemGroup>
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\AritstsController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\SongsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Albums\AlbumRequestModel.cs" />
+    <Compile Include="Models\Albums\AlbumResponseModel.cs" />
     <Compile Include="Models\Artists\ArtistRequestModel.cs" />
     <Compile Include="Models\Artists\ArtistResponseModel.cs" />
     <Compile Include="Models\Countries\CountryRequestModel.cs" />

@@ -5,8 +5,8 @@
 
     using AudioSystem.Models;
     using Data;
-    using StudentsSystem.Data;
     using Models.Artists;
+    using StudentsSystem.Data;
 
     public class AritstsController : ApiController
     {
@@ -182,7 +182,7 @@
                 .All()
                 .Any(a => a.Id == id);
 
-            if(!artistExists)
+            if (!artistExists)
             {
                 return this.NotFound();
             }

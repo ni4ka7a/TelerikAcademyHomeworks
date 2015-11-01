@@ -94,7 +94,7 @@
             });
 
             this.songs.SaveChanges();
-            return this.Ok();
+            return this.Ok("The song was successfully added.");
         }
 
         public IHttpActionResult Put(int id, SongRequestModel model)
