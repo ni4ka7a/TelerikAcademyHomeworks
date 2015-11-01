@@ -17,8 +17,8 @@
         [MaxLength(500)]
         public string Materials { get; set; }
 
-        public virtual ICollection<Student> Students { get; set; }
+        public ICollection<int> StudentIds { get; set; }
 
-        public virtual ICollection<Homework> Homeworks { get; set; }
+        public virtual ICollection<int> HomeworkIds { get; set; }
     }
 }
