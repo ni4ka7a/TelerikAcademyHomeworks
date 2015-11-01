@@ -2,10 +2,11 @@
 {
     using System.Linq;
     using System.Web.Http;
+
+    using Models.Homeworks;
     using Services.Models.Courses;
     using StudentsStystem.Models;
     using StudentsSystem.Data;
-    using Models.Homeworks;
 
     public class CoursesController : ApiController
     {
@@ -99,7 +100,7 @@
                     .All()
                     .FirstOrDefault(h => h.Id == homeworkId);
 
-                if(currentHomework != null)
+                if (currentHomework != null)
                 {
                     courseToAdd.Homeworks.Add(currentHomework);
                 }
@@ -111,7 +112,7 @@
                     .All()
                     .FirstOrDefault(s => s.Id == studentId);
 
-                if(currentStudent != null)
+                if (currentStudent != null)
                 {
                     courseToAdd.Students.Add(currentStudent);
                 }
@@ -147,12 +148,12 @@
                 .All()
                 .FirstOrDefault(c => c.Id == id);
 
-            if(courseToUpdate == null)
+            if (courseToUpdate == null)
             {
                 return this.NotFound();
             }
 
-            if(!this.ModelState.IsValid || model == null)
+            if (!this.ModelState.IsValid || model == null)
             {
                 return this.BadRequest(this.ModelState);
             }

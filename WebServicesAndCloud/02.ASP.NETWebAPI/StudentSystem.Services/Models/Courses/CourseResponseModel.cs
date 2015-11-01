@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
 
-    using StudentsStystem.Models;
     using Homeworks;
+    using StudentsStystem.Models;
 
     public class CourseResponseModel
     {
