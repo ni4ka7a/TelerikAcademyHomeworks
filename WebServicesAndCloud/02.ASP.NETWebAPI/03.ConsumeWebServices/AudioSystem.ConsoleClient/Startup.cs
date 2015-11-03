@@ -1,8 +1,10 @@
 ﻿namespace AudioSystem.ConsoleClient
 {
+    using Newtonsoft.Json.Linq;
     using System;
     using System.Net.Http;
     using System.Net.Http.Headers;
+    using System.Text;
 
     public class Startup
     {
@@ -13,30 +15,116 @@
             // You need to run the web api from task 2 for this to wokr (you don't say).
             // Dont forget to change the base uri to your localhost port!
 
-            var client = new HttpClient
+            while (true)
             {
-                BaseAddress = new Uri(BaseUri)
-            };
+                Console.WriteLine("Enter your choice:");
+                Console.WriteLine("1.Get all songs");
+                Console.WriteLine("2.Post new Artist");
+                Console.WriteLine("3.Update existing country");
+                Console.WriteLine("4.Delete the first album");
 
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var choice = int.Parse(Console.ReadLine());
 
-            HttpResponseMessage response = client.GetAsync("api/songs").Result;
-
-            if (response.IsSuccessStatusCode)
-            {
-                var songs = response.Content.ReadAsStringAsync().Result;
-
-                foreach (var song in songs)
+                switch (choice)
                 {
-                    Console.WriteLine(songs);
-                }
-            }
-            else
-            {
-                Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
-            }
+                    case 1:
+                        GetSongs("api/songs");
+                        break;
 
-            Console.ReadLine();
+                    case 2:
+                        PostArtist("api/artists");
+                        break;
+
+                    case 3:
+                        PutCountry("api/countries/1");
+                        break;
+
+                    case 4:
+                        DeleteAlbum("api/albums/1");
+                        break;
+                    default:
+                        break;
+                }
+
+                Console.WriteLine("Press any key to continue..");
+                Console.ReadLine();
+                Console.Clear();
+            }
+        }
+
+        private static void GetSongs(string route)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(BaseUri);
+                httpClient.DefaultRequestHeaders.Accept.Clear();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+
+                var response = httpClient.GetAsync(route).Result;
+                Console.WriteLine("Songs:");
+                Console.WriteLine(response.Content.ReadAsStringAsync());
+            }
+        }
+
+        private static void PostArtist(string route)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(BaseUri);
+                httpClient.DefaultRequestHeaders.Accept.Clear();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+
+                var json = JObject.Parse(
+                    "{\"Name\": \"Stamat\"" +
+                    "\"DateOfBirth\": \"01.05.2000\"" +
+                    "\"CountryId\": 1" +
+                    "\"AlbumIds\": \"[]\"" +
+                    "\"SongIds \": \"[]\"}");
+
+                var response = httpClient.PostAsync(
+                    route,
+                    new StringContent(
+                        json.ToString(),
+                        Encoding.UTF8,
+                        "application/json")).Result;
+
+                Console.WriteLine(response.Content.ReadAsStringAsync());
+            }
+        }
+
+        private static void PutCountry(string route)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(BaseUri);
+                httpClient.DefaultRequestHeaders.Accept.Clear();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+
+                var json = JObject.Parse("{\"Name\": \"Italy\"}");
+
+                var response = httpClient.PostAsync(
+                    route,
+                    new StringContent(
+                        json.ToString(),
+                        Encoding.UTF8,
+                        "application/json")).Result;
+
+                Console.WriteLine(response.Content.ReadAsStringAsync());
+            }
+        }
+
+        private static void DeleteAlbum(string route)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(BaseUri);
+                httpClient.DefaultRequestHeaders.Accept.Clear();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+
+                var response = httpClient.DeleteAsync(route).Result;
+
+                Console.WriteLine(response.Content.ReadAsStringAsync());
+            }
         }
     }
 }
