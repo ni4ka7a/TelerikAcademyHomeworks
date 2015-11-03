@@ -8,7 +8,7 @@
     using Models.Artists;
     using StudentsSystem.Data;
 
-    public class AritstsController : ApiController
+    public class ArtistsController : ApiController
     {
         private AudioSystemDbContext db;
         private IRepository<Country> countries;
@@ -16,7 +16,7 @@
         private IRepository<Album> albums;
         private IRepository<Artist> artists;
 
-        public AritstsController()
+        public ArtistsController()
         {
             this.db = new AudioSystemDbContext();
             this.countries = new EfGenericRepository<Country>(this.db);
