@@ -6,24 +6,71 @@
 
     public class Startup
     {
+        private static int longestPath;
+
         public static void Main(string[] args)
         {
-            var tree = ReadInput();
+            var nodes = ReadInput();
 
-            var root = FindRoot(tree);
+            var root = FindRoot(nodes);
+
+            Console.WriteLine("The root:");
             Console.WriteLine(root.Value);
 
-            PrintTree(root);
+            var leafs = FindLeafs(nodes);
+            Console.WriteLine("Leafs:");
+            Console.WriteLine(string.Join(" ", leafs.Select(l => l.Value).ToList()));
+
+            var middleNodes = FindMIddleNodes(nodes);
+            Console.WriteLine("MiddleNodes:");
+            Console.WriteLine(string.Join(" ", middleNodes.Select(m => m.Value).ToList()));
+
+            FindLongestPath(root, 0);
+            Console.WriteLine("The longest path is: {0}", longestPath);
         }
 
-        private static void PrintTree(TreeNode<int> tree)
+        private static void FindLongestPath(TreeNode<int> node, int path)
         {
-            foreach (var item in tree.Children)
+            path++;
+            foreach (var child in node.Children)
             {
-                Console.WriteLine(item.Value);
-
-                PrintTree(item);
+                FindLongestPath(child, path);
             }
+
+            if (path > longestPath)
+            {
+                longestPath = path;
+            }
+        }
+
+        private static List<TreeNode<int>> FindMIddleNodes(List<TreeNode<int>> nodes)
+        {
+            var middleNodes = new List<TreeNode<int>>();
+
+            foreach (var node in nodes)
+            {
+                if (node.HasParent == true && node.Children.Count != 0)
+                {
+                    middleNodes.Add(node);
+                }
+            }
+
+            return middleNodes;
+        }
+
+        private static List<TreeNode<int>> FindLeafs(List<TreeNode<int>> nodes)
+        {
+            var leafs = new List<TreeNode<int>>();
+
+            foreach (var node in nodes)
+            {
+                if (node.Children.Count == 0)
+                {
+                    leafs.Add(node);
+                }
+            }
+
+            return leafs;
         }
 
         private static TreeNode<int> FindRoot(List<TreeNode<int>> nodes)
