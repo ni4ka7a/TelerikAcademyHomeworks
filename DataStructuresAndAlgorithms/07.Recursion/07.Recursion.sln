@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.SimulateNestedLoops", "01.SimulateNestedLoops\01.SimulateNestedLoops.csproj", "{746AFB56-BA21-4528-A922-1BCF5588A840}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.GenerateCombinationsWithDuplicates", "02.GenerateCombinationsWithDuplicates\02.GenerateCombinationsWithDuplicates.csproj", "{2AEFB1A3-8BD1-4C0D-880E-4BD751E18530}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{746AFB56-BA21-4528-A922-1BCF5588A840}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{746AFB56-BA21-4528-A922-1BCF5588A840}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{746AFB56-BA21-4528-A922-1BCF5588A840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AEFB1A3-8BD1-4C0D-880E-4BD751E18530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AEFB1A3-8BD1-4C0D-880E-4BD751E18530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AEFB1A3-8BD1-4C0D-880E-4BD751E18530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AEFB1A3-8BD1-4C0D-880E-4BD751E18530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
