@@ -4,29 +4,29 @@
 
     public class Startup
     {
+        private static int[] arr;
+
         public static void Main(string[] args)
         {
-            var n = 2;
-            SimulateLoop(1, 1, n);
+            var n = 2; // Console.ReadLine();
+            arr = new int[n];
+
+            SimulateLoop(0, 1, n);
         }
 
-        private static void SimulateLoop(int i, int j, int n)
+        private static void SimulateLoop(int index, int start, int end)
         {
-            Console.WriteLine("{0} {1}", i, j);
-
-            if (j >= n)
+            if (index == arr.Length)
             {
+                Console.WriteLine(string.Join(" ", arr));
                 return;
             }
 
-            SimulateLoop(i, j + 1, n);
-
-            if (i >= n)
+            for (int i = start; i <= end; i++)
             {
-                return;
+                arr[index] = i;
+                SimulateLoop(index + 1, start, end);
             }
-
-            SimulateLoop(i + 1, j, n);
         }
     }
 }
