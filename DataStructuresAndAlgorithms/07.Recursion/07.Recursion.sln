@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.SimulateNestedLoops", "0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.GenerateCombinationsWithDuplicates", "02.GenerateCombinationsWithDuplicates\02.GenerateCombinationsWithDuplicates.csproj", "{2AEFB1A3-8BD1-4C0D-880E-4BD751E18530}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.GenerateCombinationsWithoutDuplications", "03.GenerateCombinationsWithoutDuplications\03.GenerateCombinationsWithoutDuplications.csproj", "{BC9CB5E3-0CB6-40D1-8882-5F211A70999C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2AEFB1A3-8BD1-4C0D-880E-4BD751E18530}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AEFB1A3-8BD1-4C0D-880E-4BD751E18530}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AEFB1A3-8BD1-4C0D-880E-4BD751E18530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC9CB5E3-0CB6-40D1-8882-5F211A70999C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC9CB5E3-0CB6-40D1-8882-5F211A70999C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC9CB5E3-0CB6-40D1-8882-5F211A70999C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC9CB5E3-0CB6-40D1-8882-5F211A70999C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
