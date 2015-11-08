@@ -6,7 +6,7 @@
     {
         public static void Main(string[] args)
         {
-            // Algorithm reference: https://github.com/TelerikAcademy/Data-Structures-and-Algorithms/tree/master/08.%20Combinatorics
+            // Algorithm reference: https://github.com/TelerikAcademy/Data-Structures-and-Algorithms/tree/master/08.%20Combinatorics/demos
             var n = 3; // Console.ReadLine();
 
             var arr = FillArrayOfIntegers(n);
