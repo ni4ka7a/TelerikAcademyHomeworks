@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.FindPathInMatrix", "07.F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.ChckIfPathInMatrixExist", "08.ChckIfPathInMatrixExist\08.ChckIfPathInMatrixExist.csproj", "{7FB21786-835C-4EFB-AB93-AB9E24C19C13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.FindLargestConnectedArea", "09.FindLargestConnectedArea\09.FindLargestConnectedArea.csproj", "{CA31CC5E-25D5-415F-B1FC-716A38778280}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{7FB21786-835C-4EFB-AB93-AB9E24C19C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FB21786-835C-4EFB-AB93-AB9E24C19C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FB21786-835C-4EFB-AB93-AB9E24C19C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA31CC5E-25D5-415F-B1FC-716A38778280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA31CC5E-25D5-415F-B1FC-716A38778280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA31CC5E-25D5-415F-B1FC-716A38778280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA31CC5E-25D5-415F-B1FC-716A38778280}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
