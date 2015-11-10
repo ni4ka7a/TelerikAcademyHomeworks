@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.GenerateVariationsWithou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.FindPathInMatrix", "07.FindPathInMatrix\07.FindPathInMatrix.csproj", "{55E16A92-0C7A-4681-8143-2D781F8E818A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.ChckIfPathInMatrixExist", "08.ChckIfPathInMatrixExist\08.ChckIfPathInMatrixExist.csproj", "{7FB21786-835C-4EFB-AB93-AB9E24C19C13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{55E16A92-0C7A-4681-8143-2D781F8E818A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55E16A92-0C7A-4681-8143-2D781F8E818A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55E16A92-0C7A-4681-8143-2D781F8E818A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB21786-835C-4EFB-AB93-AB9E24C19C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB21786-835C-4EFB-AB93-AB9E24C19C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB21786-835C-4EFB-AB93-AB9E24C19C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB21786-835C-4EFB-AB93-AB9E24C19C13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
