@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Passwords", "01.Password
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Rabbits", "02.Rabbits\02.Rabbits.csproj", "{7EC7B9CD-F9AA-4A28-A99A-BC23F3C7AE92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.ColorfulBalls", "04.ColorfulBalls\04.ColorfulBalls.csproj", "{F33E7233-AD92-468D-8A05-64AB366A5739}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7EC7B9CD-F9AA-4A28-A99A-BC23F3C7AE92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EC7B9CD-F9AA-4A28-A99A-BC23F3C7AE92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EC7B9CD-F9AA-4A28-A99A-BC23F3C7AE92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F33E7233-AD92-468D-8A05-64AB366A5739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33E7233-AD92-468D-8A05-64AB366A5739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33E7233-AD92-468D-8A05-64AB366A5739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33E7233-AD92-468D-8A05-64AB366A5739}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
