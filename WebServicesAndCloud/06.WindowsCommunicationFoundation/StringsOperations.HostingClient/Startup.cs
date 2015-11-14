@@ -1,8 +1,9 @@
 ﻿namespace StringsOperations.HostingClient
 {
     using System;
-    using StringsOperations;
     using System.ServiceModel;
+
+    using StringsOperations;
 
     public class Startup
     {

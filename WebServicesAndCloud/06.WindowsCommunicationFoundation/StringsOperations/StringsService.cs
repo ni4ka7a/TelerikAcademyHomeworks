@@ -2,7 +2,6 @@
 {
     public class StringsService : IStringsService
     {
-
         public int NumberOfContains(string subString, string text)
         {
             var conteinsCounter = 0;
@@ -13,7 +12,6 @@
                 conteinsCounter++;
                 index = text.IndexOf(subString);
             }
-
 
             return conteinsCounter;
         }
