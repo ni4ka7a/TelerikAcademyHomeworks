@@ -1,55 +1,131 @@
 ﻿namespace _01.KnapsackProblem
 {
     using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
 
     public class Startup
     {
         public static void Main(string[] args)
         {
-            // this algoithm only finds the highest cost
+            var reader = new StreamReader("../../input.txt");
+            int maxWeight = 0;
+            Console.SetIn(reader);
+            var products = new List<Product>();
 
-            var numberOfProducts = 6; //int.Parse(Console.ReadLine());
-            var knapsackCapacity = 10; // int.Parse(Console.ReadLine());
+            Console.WriteLine("Input products:");
 
-            var weights = new int[] { 3, 8, 4, 1, 2, 8 };
-            var costs = new int[] { 2, 12, 5, 4, 3, 13 };
-
-            var result = Knapsack(knapsackCapacity, weights, costs, numberOfProducts);
-
-            Console.WriteLine(result);
-
-        }
-
-        private static int Knapsack(int knapsackCapasity, int[] weights, int[] costs, int numberOfProducts)
-        {
-            var pairs = new int[numberOfProducts + 1, knapsackCapasity + 1];
-
-            for (int i = 0; i <= numberOfProducts; i++)
+            while (!reader.EndOfStream)
             {
-                for (int j = 0; j <= knapsackCapasity; j++)
+                var line = reader.ReadLine().Trim().ToLower();
+                Console.WriteLine(line);
+
+                if (line.StartsWith("weight"))
                 {
-                    if (i == 0 || j == 0)
-                    {
-                        pairs[i, j] = 0;
-                    }
+                    maxWeight = int.Parse(line.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray()[1]);
+                    continue;
+                }
 
-                    else if (weights[i - 1] < j)
-                    {
-                        var firstValue = (costs[i - 1] + (pairs[i - 1, j - weights[i - 1]]));
-                        var secondValue = pairs[i - 1, j];
-                        pairs[i, j] = Math.Max(firstValue, secondValue);
-                    }
+                var productValues = line
+                    .Split(new char[] { '–' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Trim())
+                    .ToArray();
 
+                var values = productValues[1]
+                    .Split(new char[] { '=', ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Trim())
+                    .ToArray();
+
+                var weight = int.Parse(values[1]);
+                var cost = int.Parse(values[3]);
+
+                products.Add(new Product
+                {
+                    Name = productValues[0],
+                    Weight = int.Parse(values[1]),
+                    Cost = int.Parse(values[3])
+                });
+            }
+
+            int numberOfProducts = products.Count;
+
+            var solutionArr = new int[numberOfProducts, maxWeight + 1];
+            var pickupTrack = new int[numberOfProducts, maxWeight + 1];
+
+            products = products
+                .OrderBy(p => p.Weight)
+                .ToList();
+
+            for (int row = 0; row < numberOfProducts; row++)
+            {
+                for (int col = 1; col <= maxWeight; col++)
+                {
+                    var curProduct = products[row];
+                    var curWeight = curProduct.Weight;
+                    var curCost = curProduct.Cost;
+
+                    var upperCost = row != 0 ? solutionArr[row - 1, col] : 0;
+
+                    if (curWeight > col)
+                    {
+                        solutionArr[row, col] = upperCost;
+                        pickupTrack[row, col] = -1;
+                    }
                     else
                     {
-                        pairs[i, j] = pairs[i - 1, j];
+                        var upperLeftCost = row != 0 ? solutionArr[row - 1, col - curWeight] : 0;
+                        var newCost = curCost + upperLeftCost;
+
+                        if (upperCost <= newCost)
+                        {
+                            solutionArr[row, col] = newCost;
+                            pickupTrack[row, col] = 1;
+                        }
+                        else
+                        {
+                            solutionArr[row, col] = upperCost;
+                            pickupTrack[row, col] = -1;
+                        }
                     }
                 }
             }
 
-            var a = pairs.GetLength(0) - 1;
-            var b = pairs.GetLength(1) - 1;
-            return pairs[a, b];
+            Console.WriteLine();
+            Console.WriteLine();
+
+            var productsFromSolution = GetProductsFromSolution(pickupTrack, products);
+
+            Console.WriteLine("Answer:");
+            foreach (var product in productsFromSolution)
+            {
+                Console.WriteLine("{0} -> weight = {1}, cost = {2}", product.Name, product.Weight, product.Cost);
+            }
+
+            Console.WriteLine("Total cost: {0}", solutionArr[numberOfProducts - 1, maxWeight]);
+        }
+
+        private static IList<Product> GetProductsFromSolution(int[,] track, IList<Product> products)
+        {
+            var result = new List<Product>();
+
+            int row = track.GetLength(0) - 1;
+            int col = track.GetLength(1) - 1;
+            while (row >= 0 && col >= 0)
+            {
+                var product = products[row];
+                if (track[row, col] == 1)
+                {
+                    result.Add(products[row]);
+                    col = col - product.Weight;
+                }
+                else
+                {
+                    row--;
+                }
+            }
+
+            return result;
         }
     }
 }
