@@ -1,0 +1,43 @@
+extends shared/layout
+block main-content
+    
+    h2.text-center
+      | Smart phones
+      
+    table.table.table-striped.table-hover.text-center
+      thead
+          tr
+            th.text-center Manufacturer
+                   
+            th.text-center Model
+                   
+            th.text-center Screen Size
+                   
+            th.text-center Storage
+            
+            th.text-center Rear Camera (in MP)
+            
+            th.text-center Front Camera (in MP)
+            
+            th.text-center Price
+            
+            th.text-center Image
+      tbody
+          each phone in phones
+              tr
+                td(style='vertical-align: middle;')= phone.manufacturer
+                       
+                td(style='vertical-align: middle;')= phone.model
+                       
+                td(style='vertical-align: middle;')= phone.screenSize + '-inch'
+                       
+                td(style='vertical-align: middle;')= phone.storage
+                
+                td(style='vertical-align: middle;')= phone.rearCamera
+                       
+                td(style='vertical-align: middle;')= phone.frontCamera
+                       
+                td(style='vertical-align: middle;')= phone.price + '$'
+            
+                td
+                  img(style='height: 100px; width: 130px;' src=phone.image)

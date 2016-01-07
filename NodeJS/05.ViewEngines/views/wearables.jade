@@ -1,0 +1,31 @@
+extends shared/layout
+block main-content
+    
+    h2.text-center
+      | Wearables
+      
+    table.table.table-striped.table-hover.text-center
+      thead
+          tr
+            th.text-center Manufacturer
+                   
+            th.text-center Model
+                   
+            th.text-center Type
+            
+            th.text-center Price
+            
+            th.text-center Image
+      tbody
+          each wearable in wearables
+              tr
+                td(style='vertical-align: middle;')= wearable.manufacturer
+                       
+                td(style='vertical-align: middle;')= wearable.model
+                       
+                td(style='vertical-align: middle;')= wearable.type
+                       
+                td(style='vertical-align: middle;')= wearable.price + '$'
+            
+                td
+                  img(style='height: 100px; width: 130px;' src=wearable.image)

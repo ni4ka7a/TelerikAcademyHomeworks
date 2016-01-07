@@ -1,0 +1,43 @@
+extends shared/layout
+block main-content
+    
+    h2.text-center
+      | Tablets
+      
+    table.table.table-striped.table-hover.text-center
+      thead
+          tr
+            th.text-center Manufacturer
+                   
+            th.text-center Model
+                   
+            th.text-center Screen Size
+                   
+            th.text-center Storage
+            
+            th.text-center Weight
+            
+            th.text-center Battery
+            
+            th.text-center Price
+            
+            th.text-center Image
+      tbody
+          each tablet in tablets
+              tr
+                td(style='vertical-align: middle;')= tablet.manufacturer
+                       
+                td(style='vertical-align: middle;')= tablet.model
+                       
+                td(style='vertical-align: middle;')= tablet.screenSize + '-inch'
+                       
+                td(style='vertical-align: middle;')= tablet.storage
+                
+                td(style='vertical-align: middle;')= tablet.weight
+                       
+                td(style='vertical-align: middle;')= tablet.battery
+                       
+                td(style='vertical-align: middle;')= tablet.price + '$'
+            
+                td
+                  img(style='height: 100px; width: 130px;' src=tablet.image)
