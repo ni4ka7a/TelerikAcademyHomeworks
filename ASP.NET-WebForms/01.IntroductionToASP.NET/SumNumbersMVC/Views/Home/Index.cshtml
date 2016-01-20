@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET MVC Simple Summator</h1>
+</div>
+
+
+<form class="form-horizontal" method="post">
+    <div class="form-group">
+        <label for="firstNumber" class="col-lg-2 control-label">First Number</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="firstNumber" id="firstNumber" placeholder="First Number">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="secondNumber" class="col-lg-2 control-label">Second Number</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="secondNumber" id="secondNumber" placeholder="Second Number">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+
+    @if (ViewBag.Message != null && ViewBag.Message.Length > 0)
+    {
+        <h3 class="text-center">The result is: </h3>
+        <h3 class="text-center">@ViewBag.Message</h3>
+    }
+
+</form>
