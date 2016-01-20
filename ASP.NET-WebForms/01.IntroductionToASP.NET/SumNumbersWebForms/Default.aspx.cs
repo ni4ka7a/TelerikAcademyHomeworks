@@ -9,22 +9,22 @@ namespace SumNumbersWebForms
 {
     public partial class _Default : Page
     {
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnCalcuate_Click(object sender, EventArgs e)
         {
             decimal firstNumber;
             decimal secondNumber;
 
-            var validFirstNumber = decimal.TryParse(this.TextBox1.Text, out firstNumber);
-            var validSecondNumber = decimal.TryParse(this.TextBox2.Text, out secondNumber);
+            var validFirstNumber = decimal.TryParse(this.tbFirstNumber.Text, out firstNumber);
+            var validSecondNumber = decimal.TryParse(this.tbSecondNumber.Text, out secondNumber);
 
             if (!validFirstNumber)
             {
-                this.result.InnerText = this.TextBox1.Text + " is invalid";
+                this.result.InnerText = this.tbFirstNumber.Text + " is invalid";
             }
 
             else if (!validSecondNumber)
             {
-                this.result.InnerText = this.TextBox2.Text + " is invalid";
+                this.result.InnerText = this.tbSecondNumber.Text + " is invalid";
             }
 
             else
