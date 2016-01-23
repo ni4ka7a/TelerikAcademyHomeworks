@@ -28,7 +28,7 @@ namespace _01.Random
             }
             catch (Exception)
             {
-                this.result.InnerText = "Invalid boundary!";
+                this.result.InnerText = "Invalid boundaries!";
             }
 
         }
