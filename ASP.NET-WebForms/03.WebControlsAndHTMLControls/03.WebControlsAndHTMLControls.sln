@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Escaping", "02.Escaping\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.StudentsAndCourses", "03.StudentsAndCourses\03.StudentsAndCourses.csproj", "{F00E9CAE-79D7-4F1B-8C1C-08E0444F9AC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.TicTacToe", "04.TicTacToe\04.TicTacToe.csproj", "{3CD0BD60-91EE-40A8-ACAE-B08920D20CBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F00E9CAE-79D7-4F1B-8C1C-08E0444F9AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F00E9CAE-79D7-4F1B-8C1C-08E0444F9AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F00E9CAE-79D7-4F1B-8C1C-08E0444F9AC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD0BD60-91EE-40A8-ACAE-B08920D20CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD0BD60-91EE-40A8-ACAE-B08920D20CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD0BD60-91EE-40A8-ACAE-B08920D20CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD0BD60-91EE-40A8-ACAE-B08920D20CBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
