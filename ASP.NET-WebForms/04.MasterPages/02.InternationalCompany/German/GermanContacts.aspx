@@ -4,7 +4,7 @@
    <h1>Adresse:</h1>
     <div class="row">
         <div class="col-md-3">
-            31, 'Aleksandar Malinov' str. Sofia
+            31, 'Aleksandar Malinov' Straße Sofia
         </div>
     </div>
 </asp:Content>
