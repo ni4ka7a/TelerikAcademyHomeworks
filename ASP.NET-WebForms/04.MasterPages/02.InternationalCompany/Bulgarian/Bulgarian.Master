@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Bulgarian.Master.cs" Inherits="_02.InternationalCompany.English.English" %>
+
+<asp:Content ContentPlaceHolderID="ContentPlaceHolderScripts" runat="server">
+    <script src="../Scripts/jquery.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="BulgarianDefault.aspx">Начало</a></li>
+            <li><a href="BulgarianAbout.aspx">Относно</a></li>
+            <li><a href="BulgarianContacts.aspx">Съдържание</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Език<span class="caret"></span></a>
+                <ul class="dropdown-menu nav navbar-nav navbar-right" role="menu">
+                    <li><a href="/English/EnglishDefault.aspx">EN</a></li>
+                    <li><a href="/German/GermanDefault.aspx">GR</a></li>
+                    <li><a href="/Bulgarian/BulgarianDefault.aspx">BG</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <asp:ContentPlaceHolder ID="BulgarianContent" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
