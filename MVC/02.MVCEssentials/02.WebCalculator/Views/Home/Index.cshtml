@@ -1,0 +1,79 @@
+﻿@model _02.WebCalculator.ViewModels.CalculatorResultViewModel
+
+<div class="jumbotron">
+    <h1>Simple MVC Web Calculator</h1>
+    <p><a href="https://github.com/TelerikAcademy/ASP.NET-MVC/tree/master/02.%20ASP.NET-MVC-Essentials/Homework">See the task description</a></p>
+</div>
+
+<div id="calculatorContainer" class="text-center">
+    @using (Html.BeginForm("CalculatorForm"))
+    {
+        var notationType = new List<SelectListItem>();
+        notationType.Add(new SelectListItem() { Text = "1024", Value = "1024" });
+        notationType.Add(new SelectListItem() { Text = "1000", Value = "1000"});
+
+        var units = new List<SelectListItem>();
+        units.Add(new SelectListItem() { Text = "Bit", Value = "b" });
+        units.Add(new SelectListItem() { Text = "Byte", Value = "B" });
+        units.Add(new SelectListItem() { Text = "Kilobit", Value = "Kb" });
+        units.Add(new SelectListItem() { Text = "Kilobyte", Value = "KB" });
+        units.Add(new SelectListItem() { Text = "Megabit", Value = "Mb" });
+        units.Add(new SelectListItem() { Text = "Megabyte", Value = "MB" });
+
+        @Html.AntiForgeryToken();
+        <div class="lead">Bit calculator</div>
+
+        <div class="form-group">
+            @Html.Label("Quantity")
+            @Html.TextBox("Quantity", "1")
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Kilo")
+            @Html.DropDownList("Kilo", notationType)
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Type")
+            @Html.DropDownList("Type", units)
+        </div>
+
+
+        <input type="submit" value="Submit" />
+    }
+</div>
+
+<div id="resultContainer" class="text-center">
+    <div class="lead">Result:</div>
+
+    <div>
+        @Html.LabelFor(m => m.Bit);
+        @Model.Bit
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Byte);
+        @Model.Byte
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Kilobit);
+        @Model.Kilobit
+    </div>
+
+     <div>
+        @Html.LabelFor(m => m.Kilobyte);
+        @Model.Kilobyte
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Megabit);
+        @Model.Megabit
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Megabyte);
+        @Model.Megabyte
+    </div>
+
+</div>
