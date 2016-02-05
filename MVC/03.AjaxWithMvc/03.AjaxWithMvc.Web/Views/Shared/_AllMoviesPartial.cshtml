@@ -1,0 +1,48 @@
+﻿@model IEnumerable<_03.AjaxWithMvc.Models.Movie>
+
+<div id="allMoviesContainer">
+
+    @foreach (var movie in Model)
+    {
+        <div class="row">
+            <div class="col-md-2">
+                @Ajax.ActionLink(movie.Title, "MovieDetails", new { id = movie.Id },
+           new AjaxOptions
+           {
+               HttpMethod = "GET",
+               UpdateTargetId = "movie-details",
+               InsertionMode = InsertionMode.Replace,
+               OnComplete = "ShowMovieDetails"
+           }
+           )
+            </div>
+            <div class="col-md-2">@movie.Year</div>
+            <div class="col-md-2">@movie.Studio.Name</div>
+            <div class="col-md-2">
+                @Ajax.ActionLink("Edit", "EditMovie", new { id = movie.Id },
+           new AjaxOptions
+           {
+               HttpMethod = "GET",
+               UpdateTargetId = "movie-edit-" + movie.Id,
+               InsertionMode = InsertionMode.Replace,
+           },
+           new { @class = "btn btn-default" }
+           )
+            </div>
+            <div class="col-md-2">
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+        <div id="movie-edit-@movie.Id" class="row edit-movie-partial"></div>
+    }
+
+    <div id="movie-details" class="modal fade" role="dialog"></div>
+</div>
+
+<script>
+    function ShowMovieDetails() {
+        console.log(1);
+        //$("#movie-details").attr('data-toggle', 'modal');
+        $("#movie-details").modal('toggle');
+    }
+</script>

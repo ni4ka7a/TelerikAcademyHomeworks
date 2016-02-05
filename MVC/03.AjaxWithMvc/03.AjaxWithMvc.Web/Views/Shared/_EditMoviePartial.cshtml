@@ -1,0 +1,64 @@
+﻿@model _03.AjaxWithMvc.Web.ViewModels.EditMovieViewModel
+
+@using (Ajax.BeginForm("UpdateMovie", new { id = Model.Id },
+                                                new AjaxOptions
+                                                {
+                                                    HttpMethod = "POST",
+                                                    InsertionMode = InsertionMode.Replace,
+                                                    UpdateTargetId = "allMoviesContainer"
+                                                }))
+{
+
+    @Html.HiddenFor(m => m.Id);
+    <div class="row">
+        <div class="col-md-2">
+            @Html.LabelFor(m => m.Title)
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-2">
+            @Html.LabelFor(m => m.Year)
+            @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-2">
+            @Html.LabelFor(m => m.StudioId)
+            @Html.DropDownListFor(m => m.StudioId, Model.Studios, new { @class = "form-control" })
+        </div>
+
+    </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.LeadingMaleRoleId)
+                @Html.DropDownListFor(m => m.LeadingMaleRoleId, Model.People, new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.LeadingFemaleRoleId)
+                @Html.DropDownListFor(m => m.LeadingFemaleRoleId, Model.People, new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.DirectorId)
+                @Html.DropDownListFor(m => m.DirectorId, Model.People, new { @class = "form-control" })
+            </div>
+
+            @*<div class="col-md-2">
+                    @Html.TextBoxFor(m => m.Director.FirstName, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.LeadingMaleRole.FirstName, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.LeadingFemaleRole.FirstName, new { @class = "form-control" })
+                </div>*@
+            <div class="col-lg-2">
+                <button type="reset" id="close-edit-partial" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+}
+

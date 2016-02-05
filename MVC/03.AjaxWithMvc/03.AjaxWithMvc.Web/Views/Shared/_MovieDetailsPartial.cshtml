@@ -1,0 +1,35 @@
+﻿@model _03.AjaxWithMvc.Web.ViewModels.MovieDetailsViewModel
+
+@*<div class="lead">Movie Information</div>
+
+    <div class="row">
+        <div class="col-md-2">
+            @Model.Title
+        </div>
+
+        <div class="col-md-2">
+            @Model.Year
+        </div>
+
+        <div class="col-md-2">
+            @Model.Director
+        </div>
+    </div>*@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Movie Details</h4>
+        </div>
+        <div class="modal-body">
+            <p><strong>Title:</strong> @Model.Title</p>
+            <p><strong>Year:</strong> @Model.Year</p>
+            <p><strong>Studio:</strong> @Model.Studio</p>
+            <p><strong>Leading Male Role:</strong> @Model.LeadingMaleRole</p>
+            <p><strong>Leading Female Role:</strong> @Model.LeadingFemaleRole</p>
+            <p><strong>Director:</strong> @Model.Director</p>
+        </div>
+    </div>
+
+</div>
+
