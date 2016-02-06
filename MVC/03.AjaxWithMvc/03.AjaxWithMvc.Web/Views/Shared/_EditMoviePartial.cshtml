@@ -43,18 +43,6 @@
                 @Html.LabelFor(m => m.DirectorId)
                 @Html.DropDownListFor(m => m.DirectorId, Model.People, new { @class = "form-control" })
             </div>
-
-            @*<div class="col-md-2">
-                    @Html.TextBoxFor(m => m.Director.FirstName, new { @class = "form-control" })
-                </div>
-
-                <div class="col-md-2">
-                    @Html.TextBoxFor(m => m.LeadingMaleRole.FirstName, new { @class = "form-control" })
-                </div>
-
-                <div class="col-md-2">
-                    @Html.TextBoxFor(m => m.LeadingFemaleRole.FirstName, new { @class = "form-control" })
-                </div>*@
             <div class="col-lg-2">
                 <button type="reset" id="close-edit-partial" class="btn btn-default">Cancel</button>
                 <button type="submit" class="btn btn-primary">Update</button>

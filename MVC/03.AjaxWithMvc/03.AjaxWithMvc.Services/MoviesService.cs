@@ -16,6 +16,23 @@
             this.movies = movies;
         }
 
+        public void Create(Movie movie)
+        {
+            this.movies.Add(movie);
+            this.movies.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var movieToDelete = this.movies.GetById(id);
+
+            if (movieToDelete != null)
+            {
+                this.movies.Delete(movieToDelete);
+                this.movies.SaveChanges();
+            }
+        }
+
         public IQueryable<Movie> GetAll()
         {
             return this.movies.All();

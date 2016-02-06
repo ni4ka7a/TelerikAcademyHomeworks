@@ -11,5 +11,9 @@
         Movie GetById(int id);
 
         void Update(Movie movieToUpdate);
+
+        void Delete(int id);
+
+        void Create(Movie movie);
     }
 }

@@ -20,36 +20,198 @@ namespace _03.AjaxWithMvc.Data.Migrations
 
             if (databaseIsEmpty)
             {
-                for (int i = 0; i < 5; i++)
+                // Add studios
+                context.Studios.Add(new Studio()
                 {
-                    var studio = new Studio()
-                    {
-                        Name = $"Studio {i}",
-                        Adress = $"Adress {i}"
-                    };
+                    Name = "Dreamworks",
+                    Adress = "Some Address 1"
+                });
 
-                    context.Studios.Add(studio);
-                }
-
-
-                for (int i = 0; i < 15; i++)
+                context.Studios.Add(new Studio()
                 {
-                    var person = new Person()
-                    {
-                        FirstName = $"First name {i}",
-                        LastName = $"Last name {i}",
-                        Age = i + 18
-                    };
+                    Name = "MGM",
+                    Adress = "Some Address 1"
+                });
 
-                    context.People.Add(person);
-                }
+                context.Studios.Add(new Studio()
+                {
+                    Name = "Sony",
+                    Adress = "Some Address 1"
+                });
+
+                context.Studios.Add(new Studio()
+                {
+                    Name = "Time Warner",
+                    Adress = "Some Address 1"
+                });
+
+                context.Studios.Add(new Studio()
+                {
+                    Name = "Walt Disney",
+                    Adress = "Some Address 1"
+                });
+
+
+                // Add people
+                var random = new Random();
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Al",
+                    LastName = "Pacino",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Robert",
+                    LastName = "De Niro",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Jack",
+                    LastName = "Nicholson",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Tom",
+                    LastName = "Hanks",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Cary",
+                    LastName = "Grant",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Johnny",
+                    LastName = "Depp",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Morgan",
+                    LastName = "Freeman",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Anthony",
+                    LastName = "Hopkins",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Leonardo",
+                    LastName = "DiCaprio",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Brad",
+                    LastName = "Pitt",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Russell",
+                    LastName = "Crowe",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Male
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Scarlett",
+                    LastName = "Johansson",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Female
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Jessica",
+                    LastName = "Alba",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Female
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Natalie",
+                    LastName = "Portman",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Female
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Mila",
+                    LastName = "Kunis",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Female
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Jessica",
+                    LastName = "Biel",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Female
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Megan",
+                    LastName = "Fox",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Female
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Monica",
+                    LastName = "Bellucci",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Female
+                });
+
+                context.People.Add(new Person()
+                {
+                    FirstName = "Jennifer",
+                    LastName = "Lawrence",
+                    Age = random.Next(18, 100),
+                    Gender = Gender.Female
+                });
 
                 context.SaveChanges();
 
-
-                var random = new Random();
-
-                var people = context.People.ToList();
+                var allPeople = context.People.ToList();
+                var males = allPeople.Where(p => p.Gender == Gender.Male).ToList();
+                var females = allPeople.Where(p => p.Gender == Gender.Female).ToList();
                 var studios = context.Studios.ToList();
 
                 for (int i = 0; i < 5; i++)
@@ -58,9 +220,9 @@ namespace _03.AjaxWithMvc.Data.Migrations
                     {
                         Title = $"Movie {i}",
                         Year = i + 2000,
-                        Director = people[random.Next(0, people.Count)],
-                        LeadingFemaleRole = people[random.Next(0, people.Count)],
-                        LeadingMaleRole = people[random.Next(0, people.Count)],
+                        Director = allPeople[random.Next(0, allPeople.Count)],
+                        LeadingFemaleRole = females[random.Next(0, females.Count)],
+                        LeadingMaleRole = males[random.Next(0, males.Count)],
                         Studio = studios[random.Next(0, studios.Count)]
                     };
 

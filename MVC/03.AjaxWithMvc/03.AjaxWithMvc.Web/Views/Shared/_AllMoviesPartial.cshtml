@@ -30,19 +30,44 @@
            )
             </div>
             <div class="col-md-2">
-                <a href="#" class="btn btn-danger">Delete</a>
+                @Ajax.ActionLink("Delete", "DeleteMovie", new { id = movie.Id },
+                new AjaxOptions
+                {
+                    HttpMethod = "POST",
+                    UpdateTargetId = "allMoviesContainer",
+                    InsertionMode = InsertionMode.Replace
+                },
+                new { @class = "btn btn-danger" }
+                )
             </div>
         </div>
         <div id="movie-edit-@movie.Id" class="row edit-movie-partial"></div>
     }
 
     <div id="movie-details" class="modal fade" role="dialog"></div>
+
+    <div class="row">
+        @Ajax.ActionLink("Add New Movie", "AddMovie", null,
+                new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "add-movie-partial",
+                    InsertionMode = InsertionMode.Replace,
+                    OnComplete = "ShowAddMoviePartial"
+                },
+                new { @class = "btn btn-danger" }
+                )
+        <div class="modal fade" id="add-movie-partial" role="dialog"></div>
+
+        </div>
 </div>
 
 <script>
     function ShowMovieDetails() {
-        console.log(1);
-        //$("#movie-details").attr('data-toggle', 'modal');
         $("#movie-details").modal('toggle');
+    }
+
+    function ShowAddMoviePartial() {
+        $("#add-movie-partial").modal('toggle');
     }
 </script>

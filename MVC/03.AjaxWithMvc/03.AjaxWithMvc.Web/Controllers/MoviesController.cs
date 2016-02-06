@@ -6,6 +6,7 @@
     using Services.Contracts;
     using Models;
     using ViewModels;
+
     public class MoviesController : Controller
     {
         private IMoviesService movies;
@@ -39,7 +40,7 @@
                 {
                     Title = m.Title,
                     Year = m.Year,
-                    Director = m.Director.FirstName,
+                    Director = m.Director.FirstName + " " + m.Director.LastName,
                     LeadingMaleRole = m.LeadingMaleRole.FirstName + " " + m.LeadingMaleRole.LastName,
                     LeadingFemaleRole = m.LeadingFemaleRole.FirstName + " " + m.LeadingFemaleRole.LastName
                 })
@@ -65,14 +66,14 @@
                 })
                 .FirstOrDefault();
 
-           movie.Studios =  this.studios
-                .GetAll()
-                .Select(s => new SelectListItem()
-                {
-                    Value = s.Id.ToString(),
-                    Text = s.Name
-                })
-                .ToList();
+            movie.Studios = this.studios
+                 .GetAll()
+                 .Select(s => new SelectListItem()
+                 {
+                     Value = s.Id.ToString(),
+                     Text = s.Name
+                 })
+                 .ToList();
 
             movie.People = this.people
                 .GetAll()
@@ -97,7 +98,50 @@
             this.movies.Update(movie);
 
             return this.RedirectToAction("AllMovies");
+        }
 
+        [HttpPost]
+        public ActionResult DeleteMovie(int id)
+        {
+            this.movies.Delete(id);
+
+            return this.RedirectToAction("AllMovies");
+        }
+
+        [HttpGet]
+        public ActionResult AddMovie()
+        {
+            var addMovieViewModel = new AddMovieViewModel();
+            addMovieViewModel.People = this.people
+                 .GetAll()
+                 .Select(p => new SelectListItem()
+                 {
+                     Text = p.FirstName + p.LastName,
+                     Value = p.Id.ToString()
+                 })
+                 .ToList();
+
+            addMovieViewModel.Studios = this.studios
+                .GetAll()
+                .Select(s => new SelectListItem()
+                {
+                    Text = s.Name,
+                    Value = s.Id.ToString()
+                })
+                .ToList();
+
+            return this.PartialView("_AddMoviePartial", addMovieViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult AddMovie(Movie movie)
+        {
+            if (this.ModelState.IsValid)
+            {
+                this.movies.Create(movie);
+            }
+
+            return this.RedirectToAction("AllMovies");
         }
 
     }

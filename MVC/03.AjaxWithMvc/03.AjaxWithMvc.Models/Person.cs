@@ -18,5 +18,7 @@
 
         [Range(1, 130)]
         public int Age { get; set; }
+
+        public Gender Gender { get; set; }
     }
 }

@@ -184,6 +184,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AddMovieViewModel.cs" />
     <Compile Include="ViewModels\EditMovieViewModel.cs" />
     <Compile Include="ViewModels\MovieDetailsViewModel.cs" />
   </ItemGroup>
@@ -232,6 +233,7 @@
     <Content Include="Views\Shared\_AllMoviesPartial.cshtml" />
     <Content Include="Views\Shared\_MovieDetailsPartial.cshtml" />
     <Content Include="Views\Shared\_EditMoviePartial.cshtml" />
+    <Content Include="Views\Shared\_AddMoviePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

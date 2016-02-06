@@ -1,0 +1,70 @@
+﻿@model _03.AjaxWithMvc.Web.ViewModels.AddMovieViewModel
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <button type="button" class="close"
+                    data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+                Add new Movie
+            </h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+
+            @using (Ajax.BeginForm("AddMovie",
+                                                new AjaxOptions
+                                                {
+                                                    HttpMethod = "POST",
+                                                    InsertionMode = InsertionMode.Replace,
+                                                    UpdateTargetId = "allMoviesContainer"
+                                                }))
+            {
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" name="Title" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="number" class="form-control" id="year" name="Year" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="StudioId">Studio</label>
+                        @Html.DropDownList("StudioId", Model.Studios)
+                    </div>
+
+                    <div class="form-group">
+                        <label for="LeadingMaleRoleId">Leading Male Role</label>
+                        @Html.DropDownList("LeadingMaleRoleId", Model.People)
+                    </div>
+
+                    <div class="form-group">
+                        <label for="LeadingFemaleRoleId">Leading Female Role</label>
+                        @Html.DropDownList("LeadingFemaleRoleId", Model.People)
+                    </div>
+
+                    <div class="form-group">
+                        <label for="DirectorId">Director</label>
+                        @Html.DropDownList("DirectorId", Model.People)
+                    </div>
+
+                    <button type="submit" id="btn-add-movie" class="btn btn-success">Add</button>
+            }
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#btn-add-movie").on('click', function () {
+        $("#add-movie-partial").modal('toggle');
+
+    });
+</script>
