@@ -1,0 +1,64 @@
+﻿@model  IEnumerable<_04.WorkingWithData.Web.ViewModels.TweetViewModel>
+
+
+<div class="jumbotron">
+    <h2>Welcome to the Twitter-like demo MVC application</h2>
+    <p>You can test the Admin functions with username: <strong>admin@admin.com</strong> pass: <strong>123456</strong></p>
+
+    @if (Request.IsAuthenticated)
+    {
+        <p><button id="btn-add-tweet" class="btn btn-primary btn-lg">Add Tweet</button></p>
+    }
+    else
+    {
+        <p>To add tweets please Sing IN</p>
+    }
+
+</div>
+
+<h2>Latest Tweets</h2>
+
+<div id="add-tweet-form" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Add new Tweet
+                </h4>
+                <p>If you have a word starting with '#' it will be indexed for a tag</p>
+                <p>Example: some text #fun some text</p>
+            </div>
+
+            <div class="modal-body">
+                @using (Html.BeginForm("AddTweet", "Tweets", "POST"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label for="content">What do you think</label>
+                        <textarea class="form-control" name="content"></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-add-tweet" class="btn btn-success">Add</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="homePageContainer">
+    @foreach (var tweet in Model)
+    {
+        @Html.DisplayFor(t => tweet)
+    }
+
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/addTweet")
+    @Scripts.Render("~/bundles/jqueryval")
+}

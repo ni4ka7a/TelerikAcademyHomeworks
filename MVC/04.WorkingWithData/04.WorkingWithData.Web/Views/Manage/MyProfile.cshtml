@@ -1,0 +1,31 @@
+﻿@model _04.WorkingWithData.Web.ViewModels.UserViewModel
+
+<h2>My Profile</h2>
+
+<div class="row">
+    <div class="col-md-2">
+        Username:
+    </div>
+    <div class="col-md-2">
+        <strong>
+            @Model.Username
+        </strong>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        ChangePassword:
+    </div>
+    <div class="col-md-2">
+       @Html.ActionLink("Change your password", "ChangePassword")
+    </div>
+</div>
+
+<div class="lead">My Tweets</div>
+
+@foreach (var tweet in Model.MyTweets)
+{
+    @Html.DisplayFor(t => tweet)
+}
+

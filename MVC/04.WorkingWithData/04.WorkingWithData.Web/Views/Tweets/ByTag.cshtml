@@ -1,0 +1,8 @@
+﻿@model  IEnumerable<_04.WorkingWithData.Web.ViewModels.TweetViewModel>
+
+<h2>Be aware that there is 15 minutes caching on this page</h2>
+
+@foreach (var tweet in Model)
+{
+    @Html.DisplayFor(t => tweet)
+}

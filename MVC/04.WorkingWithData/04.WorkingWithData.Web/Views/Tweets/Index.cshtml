@@ -1,0 +1,9 @@
+﻿@model  IEnumerable<_04.WorkingWithData.Web.ViewModels.TweetViewModel>
+
+<h1>All Tweets</h1>
+<h2>I need paging here :(</h2>
+
+@foreach (var tweet in Model)
+{
+   @Html.DisplayFor(t => tweet)
+}

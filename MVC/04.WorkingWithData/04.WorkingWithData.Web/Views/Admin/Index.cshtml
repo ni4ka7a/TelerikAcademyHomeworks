@@ -1,0 +1,54 @@
+﻿@model _04.WorkingWithData.Web.ViewModels.TweetViewModel
+
+<h3 class="text-center">Manage tweets</h3>
+
+@(Html.Kendo().Grid<_04.WorkingWithData.Web.ViewModels.TweetViewModel>
+    ()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(m => m.Content).Width(200);
+        columns.Bound(m => m.CreatedOn).Width(200).Format("{0:yyyy-MM-dd HH:mm}");
+        columns.Bound(m => m.Username).Width(200);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(150);
+    })
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:550px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .ServerOperation(false)
+        .PageSize(10)
+        .Events(events => events.Error("error_handler"))
+        .Model(model =>
+        {
+            model.Id(m => m.Id);
+            model.Field(m => m.Content).DefaultValue(null);
+            model.Field(m => m.CreatedOn).DefaultValue(null).Editable(false);
+            model.Field(m => m.Username).DefaultValue(null).Editable(false);
+        })
+        .Read(read => read.Action("TweetsRead", "Admin"))
+        .Update(update => update.Action("TweetsUpdate", "Admin"))
+        .Destroy(update => update.Action("TweetsDestroy", "Admin"))
+        )
+)
+
+@section scripts{
+    <script type="text/javascript">
+        function error_handler(e) {
+            if (e.errors) {
+                var message = "Errors:\n";
+                $.each(e.errors, function (key, value) {
+                    if ('errors' in value) {
+                        $.each(value.errors, function () {
+                            message += this + "\n";
+                        });
+                    }
+                });
+                alert(message);
+            }
+        }
+    </script>
+}
